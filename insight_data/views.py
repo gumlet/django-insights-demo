@@ -16,5 +16,9 @@ def event_list(request):
 
 
 def get_views(request):
-    event_count = Event.objects.filter(name="played").count()
-    return JsonResponse({"views": event_count}, status=200)
+    event_count = Event.objects.filter(name="played").distinct('playback_id').count()
+    intelligent_views = Event.objects.filter(name="update", playback_time_instant__gte=20).distinct('playback_id').count()
+    return JsonResponse({
+        "views": event_count, 
+        # "intelligent_views": intelligent_views
+    }, status=200)

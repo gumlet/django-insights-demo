@@ -6,6 +6,14 @@
 
 To run this project you will need to install all the dependencies use the above command to install it
 
+### `Setup PostgreSQL`
+
+Install PostgreSQL and use the following commands to create a database and a user
+
+`CREATE DATABASE analytics;`
+`CREATE USER analytics_user WITH PASSWORD 'password';`
+`GRANT ALL PRIVILEGES ON DATABASE analytics TO analytics_user;`
+
 ## Running the development server
 
 ### `python manage.py migrate`
